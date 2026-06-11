@@ -20,8 +20,9 @@ spec:
         - name: echo-server
           image: ealen/echo-server
           ports:
-            - name: '80'
+            - name: http
               containerPort: 80
+              protocol: TCP
           resources:
             requests:
               memory: '128'
