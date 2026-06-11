@@ -11,5 +11,6 @@ spec:
     path: echo-server/overlays/staging
   destination:
     server: https://kubernetes.default.svc
-    #namespace: echo-server
-
+  syncPolicy:
+    automated:
+      enabled: true
