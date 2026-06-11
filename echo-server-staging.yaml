@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: echo-server-staging
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/xputerax/argocd-homelab/echo-server/overlays/staging
+    targetRevision: HEAD
+    path: echo-server-staging
+  destination:
+    server: https://kubernetes.default.svc
+    #namespace: echo-server
+

@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: echo-server-prod
+  namespace: argocd
+spec:
+  source:
+    repoURL: https://github.com/xputerax/argocd-homelab/echo-server/overlays/prod
+    targetRevision: HEAD
+    path: echo-server-prod
+  destination:
+    server: https://kubernetes.default.svc
+    #namespace: echo-server
+
