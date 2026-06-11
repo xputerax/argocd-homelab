@@ -4,10 +4,11 @@ metadata:
   name: echo-server-staging
   namespace: argocd
 spec:
+  project: default
   source:
-    repoURL: https://github.com/xputerax/argocd-homelab/echo-server/overlays/staging
+    repoURL: https://github.com/xputerax/argocd-homelab.git
     targetRevision: HEAD
-    path: echo-server-staging
+    path: echo-server/overlays/staging
   destination:
     server: https://kubernetes.default.svc
     #namespace: echo-server

@@ -4,10 +4,11 @@ metadata:
   name: echo-server-prod
   namespace: argocd
 spec:
+  project: default
   source:
-    repoURL: https://github.com/xputerax/argocd-homelab/echo-server/overlays/prod
+    repoURL: https://github.com/xputerax/argocd-homelab.git
     targetRevision: HEAD
-    path: echo-server-prod
+    path: echo-server/overlays/prod
   destination:
     server: https://kubernetes.default.svc
     #namespace: echo-server
