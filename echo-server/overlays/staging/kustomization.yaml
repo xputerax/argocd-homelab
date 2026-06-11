@@ -1,5 +1,5 @@
 resources:
 - ../../base
 
-namePrefix: dev-
-namespace: echo-server-dev
+namePrefix: staging-
+namespace: echo-server-staging
