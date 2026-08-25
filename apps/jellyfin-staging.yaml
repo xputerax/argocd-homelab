@@ -15,6 +15,15 @@ spec:
       values: |
         jellyfin:
           image: linuxserver/jellyfin:10.11.11
+          env:
+            - name: TZ
+              value: "Asia/Kuala_Lumpur"
+            - name: JELLYFIN_PublishedServerUrl
+              value: "http://192.168.100.12"
+        loadBalancers:
+          server:
+            port: 80
+            targetPort: 8096
   destination:
     server: https://kubernetes.default.svc
     namespace: jellyfin-staging
