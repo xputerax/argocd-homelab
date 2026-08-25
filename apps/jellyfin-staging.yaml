@@ -34,6 +34,11 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: jellyfin-staging
+  ignoreDifferences:
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /metadata/labels
   syncPolicy:
     automated:
       enabled: true
