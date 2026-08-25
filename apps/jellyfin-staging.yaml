@@ -12,6 +12,9 @@ spec:
     helm:
       valueFiles:
         - values.yaml
+      values: |
+        jellyfin:
+          image: linuxserver/jellyfin:10.11.11
   destination:
     server: https://kubernetes.default.svc
     namespace: jellyfin-staging
