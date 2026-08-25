@@ -12,8 +12,6 @@ spec:
     directory:
       recurse: true
       include: |
-        echo-server-prod.yaml
-        echo-server-staging.yaml
         jellyfin-staging.yaml
   destination:
     server: https://kubernetes.default.svc
