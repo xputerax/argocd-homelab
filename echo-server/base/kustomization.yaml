@@ -1,2 +1,4 @@
 resources:
 - deployment.yaml
+- service-clusterip.yaml
+- service-loadbalancer.yaml
