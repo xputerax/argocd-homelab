@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: transmission
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://media-servarr.shw.al/charts
+    chart: transmission
+    targetRevision: 0.17.0
+    helm:
+      values: |
+        secrets:
+          - name: 'rpcPassword'
+            ref: 'transmission-secret'
+        deployment:
+          volumes:
+            downloads:
+              nfs:
+                server: 10.10.11.1
+                path: /tank/torrents
+        ingress:
+          enabled: false
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: transmission
+  ignoreDifferences:
+    - group: ""
+      kind: Service
+      jsonPointers:
+        - /metadata/labels
+  syncPolicy:
+    automated:
+      enabled: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

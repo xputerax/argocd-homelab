@@ -11,7 +11,7 @@ spec:
     path: apps
     directory:
       recurse: true
-      include: "*jellyfin-staging.yaml"
+      include: "*jellyfin-staging.yaml *transmission.yaml"
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
